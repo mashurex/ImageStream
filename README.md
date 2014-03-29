@@ -1,4 +1,4 @@
-# ImageStream Tumblr like image stream wit social sharing
+# ImageStream Tumblr Like Node.js Image Stream
 
 ## Description
 ImageStream is a dead simple image upload application written in Node.js.
