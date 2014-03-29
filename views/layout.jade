@@ -1,0 +1,44 @@
+mixin social-nav
+    nav.socialnav
+        div.socialnav-inner
+            span.sprite.social-label Visit Our Profile
+            a.sprite.btn-facebook(href="#{pconfig.imagestream.social.facebook.url}",title="#{pconfig.imagestream.social.facebook.title}",target="_blank") #{pconfig.imagestream.social.facebook.title}
+            a.sprite.btn-twitter(href="#{pconfig.imagestream.social.twitter.url}",title="#{pconfig.imagestream.social.twitter.title}",target="_blank") #{pconfig.imagestream.social.twitter.title}
+
+doctype html
+html
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        meta(property="og:site_name" content="imagestream")
+        if(social_meta)
+            meta(name="og:title" content="#{social_meta.title}")
+            meta(name="og:image" content="#{social_meta.image_url}")
+            meta(name="og:url" content="#{social_meta.post_url}")
+            meta(name="twitter:description" content="#{social_meta.title}")
+            meta(name="twitter:image" content="#{social_meta.image_url}")
+            meta(name="twitter:url" content="#{social_meta.short_url}")
+        title= (title ? title : 'imagestream')
+        base(href="#{pconfig.imagestream.root_path}")
+        link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+        link(rel="icon", href="/favicon.ico", type="image/x-icon")
+        link(rel="stylesheet", href="/stylesheets/style.css")
+        script(src="/javascripts/jquery.min.js")
+        script(src="/javascripts/popup.js")
+        block head
+
+    body
+        header#header
+            div.header-inner
+                h1.logo-imagestream
+                    a(href="#{pconfig.imagestream.root_path}")
+                        span.inner-text Image Stream
+
+        section#content
+            div.content-inner
+                block content
+
+        footer#footer
+            div.footer-inner
+                span.sprite.icon-bigfoot &nbsp;

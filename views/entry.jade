@@ -1,0 +1,22 @@
+extends layout
+block head
+    script.
+        $(function() {
+            // init page
+            var $btnFacebook = $('.btn-facebook-sm.share-facebook');
+            var $btnTwitter = $('.btn-twitter-sm.share-twitter');
+            new PopupWindow($btnFacebook, {popupName: 'popup-facebook'});
+            new PopupWindow($btnTwitter, {popupName: 'popup-twitter'});
+        });
+
+block content
+    +social-nav
+
+    div.photostream
+        article
+            img(src="#{pconfig.imagestream.public_image_root}/#{result.imageName}",alt="")
+            div.post
+                p #{result.message}
+                div.sharenav
+                    a.sprite.btn-facebook-sm.share-facebook(href="https://www.facebook.com/sharer.php?u=#{facebook_share_url}",target="_new") Facebook
+                    a.sprite.btn-twitter-sm.share-twitter(href="https://twitter.com/intent/tweet?url=#{twitter_share_url}",target="_new") Twitter

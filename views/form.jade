@@ -1,0 +1,16 @@
+extends layout
+block content
+    form(action="#{pconfig.imagestream.root_path}", method="post", enctype="multipart/form-data")
+        fieldset.upload-form
+            dl
+                dt
+                    label(for="displayImage") Display Image
+                dd
+                    input(type="file", name="displayImage")
+                dt
+                    label(for="message") Post Message
+                dd
+                    input(type="text", name="message")
+
+            input(type="submit", name="upload", value="Upload")
+

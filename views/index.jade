@@ -1,0 +1,31 @@
+extends layout
+block content
+	+social-nav
+
+	nav.pagenav
+		div.pagenav-inner
+			if(prev_page > 0)
+				a.nav-back(href="page/#{prev_page}")
+					span.sprite.label-back Back
+					span.sprite.arrow-back &lt;&lt;
+			else
+				span.nav-back.disabled
+					span.sprite.label-back Back
+					span.sprite.arrow-back &lt;&lt;
+			if(page < page_count)
+				a.nav-next(href="page/#{next_page}")
+					span.sprite.arrow-next &gt;&gt;
+					span.sprite.label-next Next
+			else
+				span.nav-next.disabled
+					span.sprite.arrow-next &gt;&gt;
+					span.sprite.label-next Next
+
+	div.photostream
+		- each result in entries
+			article
+				a(href="post/#{result._id}")
+					img(src="#{pconfig.imagestream.public_image_root}/#{result.imageName}",alt="")
+				div.post
+					p #{result.message}
+					a.sprite.permalink(href="post/#{result._id}") #{result._id}
