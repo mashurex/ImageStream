@@ -1,4 +1,11 @@
-# ImageStream Social Image Stream
+# ImageStream Tumblr like image stream wit social sharing
+
+## Description
+ImageStream is a dead simple image upload application written in Node.js.
+You can manually upload images or have a client (iOS, Android, etc.) post images to the application for storage.
+Files are written to disk and their metadata is stored in MongoDB. The index page is a paginated stream of all the images
+ that have been uploaded to the application. Each entry gets it's own detail page which allows sharing to Twitter and Facebook
+ as well as URL shortening via Bit.ly.
 
 ### Requirements
 - [MongoDB](http://www.mongodb.org/) 
